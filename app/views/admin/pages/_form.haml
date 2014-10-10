@@ -1,0 +1,69 @@
+- @extra_javascript = ['livepipe', 'tabs']
+- @extra_stylesheet = ['admin/forms', 'admin/tabs', 'admin/buttons']
+
+._tabs
+  %ul#multilang_page_tabs.sub_tabs
+    %li.tab
+      %a{ :href => '#tab_default' } default
+
+    - f.object.translations.each do |trans|
+      %li.tab
+        %a{ :href => ['#', dom_id(trans, trans.lang)].join }= trans.lang
+.clean.left
+
+._content
+  %fieldset
+    %table.formfield
+      %tr
+        %td{ :colspan => 2 }
+          %div.checkbox
+            = f.check_box :published
+            = f.label :published, 'Published?'
+
+      %tr
+        %td= f.label :slug
+        %td.string= f.text_field :slug
+
+  %div#tab_default
+    %fieldset
+      %table.formfield
+        %tr
+          %td= f.label :name
+          %td.string= f.text_field :name
+    
+        %tr
+          %td.textarea{ :colspan => 2 }
+            %hr
+            = f.label :body_markdown, 'Content'
+            = f.text_area :body_markdown, :style => 'margin-top: 4px;'
+            %p{ :style => "color: green; padding: 3px 0;" }= "use <strong>markdow</strong> for syntax!"
+
+  = render :partial => 'translation', :object => f
+
+  %fieldset
+    %table.formfield
+      %tr
+        %td{ :colspan => 2 }
+          - if @page.assets.exists?
+            %hr
+            %div.project_photos
+              = render :partial => 'page_asset', :collection => @page.assets
+            %div.clean.left
+            %hr
+
+          %div#photos
+            = render :partial => 'asset', :collection => @page.assets[0...3]
+
+          %div
+          = link_to_function "Add Asset" do |page|
+            - page.insert_html :bottom, :photos, :partial => 'asset', :object => Asset.new
+
+%div.buttons
+  %button.positive{ :type => :submit }
+    = image_tag 'icons/tick.png'
+    %span
+      %span Save than close
+
+:javascript
+  // tabs
+  new Control.Tabs('multilang_page_tabs');

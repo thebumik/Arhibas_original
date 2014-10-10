@@ -1,0 +1,288 @@
+/*__________________________________________________________________________ # GLOBAL styles
+*/
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  width: 100%;
+  background: #fff;
+  min-width: 990px;
+  font-size: 90%;
+  font-family: 'Trebuchet MS', Arial, Verdana;
+  font-size: 15px;
+}
+
+a {
+  color: #3a9bfd;
+  text-decoration: underline;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+h1, h2, h3 {
+  margin: .8em 0 .2em 0;
+  padding: 0;
+}
+
+p {
+    margin: .4em 0 .8em 0;
+    padding: 0;
+}
+
+img {
+  margin: 10px 0 5px;
+}
+
+hr {
+  height: 1px;
+  padding: 0;
+  margin: 7px 0;
+  border: none;
+  background-color: #ddd;
+}
+
+/*__________________________________________________________________________ # GLOBAL cleaners
+*/
+.clean {
+  clear: both;
+}
+
+.clean.left {
+  clear: left;
+}
+
+.clean.right {
+  clear: right;
+}
+
+/*__________________________________________________________________________ # HEADER styles
+*/
+#header {
+  clear: both;
+  float: left;
+  width: 100%;
+}
+
+#header {
+  border-bottom: 1px solid #000;
+}
+
+#header p,
+#header h1,
+#header h2 {
+  padding: .4em 15px 0 15px !important;
+  margin: 0;
+}
+
+#header .account {
+  font-size: 14px;
+  margin: 4px 15px 0 15px;
+}
+
+#header ul {
+  clear: left;
+  float: left;
+  width: 100%;
+  list-style: none;
+  margin: 10px 0 0 0;
+  padding: 0;
+  font: normal 17px Georgia;
+}
+
+#header ul li {
+  display: inline;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#header ul li a {
+  display: block;
+  float: left;
+  margin: 0 0 0 1px;
+  padding: 9px 17px;
+  text-align: center;
+  background: #eee;
+  color: #000;
+  text-decoration: none;
+  position: relative;
+  left: 15px;
+  line-height: 1.3em;
+}
+
+#header ul li a:hover {
+  background: lavender; /* MistyRose lavender */
+  text-decoration: underline;
+  color: #3a9bfd;
+}
+
+#header ul li a.active,
+#header ul li a.active:hover {
+  color: #fff;
+  background: #222;
+  text-decoration: underline;
+}
+
+#header ul li a span {
+  display: block;
+}
+
+/*__________________________________________________________________________ # LAYOUT styles
+*/
+#layoutdims {
+  clear: both;
+  background: #eee;
+  border-top: 4px solid #222;
+  margin: 0;
+  padding: 6px 15px !important;
+  text-align: right;
+}
+
+/* column container */
+.colmask {
+  position: relative;
+  clear: both;
+  float: left;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* 2 column left menu settings */
+.leftmenu {
+  background: #eee;
+}
+
+.leftmenu .colright {
+  float: left;
+  width: 200%;
+  position: relative;
+  left: 360px;
+  background: #fff;
+}
+
+.leftmenu .col1wrap {
+  float: right;
+  width: 50%;
+  position: relative;
+  right: 360px;
+  padding-bottom: 1em;
+}
+
+.leftmenu .col1 {
+  margin: 0 15px 0 375px;
+  position: relative;
+  right: 100%;
+  overflow: hidden;
+}
+
+.leftmenu.full_screen .colright { left: 0px; }
+.leftmenu.full_screen .col1wrap { right: 0px; }
+.leftmenu.full_screen .col1 { margin: 0 15px 0 15px; }
+
+.leftmenu .col2 {
+  float: left;
+  width: 330px;
+  position: relative;
+  right: 345px;
+}
+
+.dyn_content {
+  clear: left;
+  display: block;
+  padding: 7px 0;
+}
+
+/* categories tree */
+.categories_tree {
+  margin: 10px 0 10px -15px;
+  font-size: 15px;
+}
+
+.categories_tree ul li {
+  margin-left: 20px;
+  line-height: 22px;
+}
+
+.categories_tree ul li span {
+  background-color: #3a9bfd;
+  color: #fff;
+  padding: 1px;
+  cursor: pointer;
+}
+
+/* list_of_categories */
+.list_of_categories {
+  clear: left;
+}
+
+.list_of_categories li {
+  margin-bottom: 12px;
+}
+
+/* project_photos */
+.project_photos {
+  margin: 4px 0 !important;
+}
+
+.project_photos ._pp_thumb {
+  float: left;
+  padding: 1px 6px;
+  border: #ccc 1px solid;
+  margin-right: 3px;
+  margin-bottom: 5px;
+  background-color: #fff;
+}
+
+.project_photos ._pp_thumb img {
+  border: #eee 4px solid;
+  padding: 0px !important;
+}
+
+.project_photos ._pp_thumb:hover {
+  background-color: lightgoldenrodyellow;
+  border-color: green;
+}
+
+.project_photos ._pp_thumb div {
+  text-align: center;
+  color: #777;
+  margin: 0 4px;
+}
+
+/* _tabs and _content */
+._tabs, ._content {
+  display: block;
+}
+
+/*__________________________________________________________________________ # FOOTER styles
+*/
+#footer {
+  clear: both;
+  float: left;
+  width: 100%;
+  border-top: 1px solid #222;
+}
+
+#footer p {
+  padding: 10px;
+  margin: 0;
+}
+
+/*__________________________________________________________________________ # FLASH MESSAGE
+*/
+#flash_message {
+  padding: 8px 12px;
+  margin-bottom: 7px;
+}
+
+#flash_message .hide_me {
+  display: block;
+  font-size: 13px;
+}
+
+#flash_message.notice {
+  background-color: #e6fbc8;
+  border: yellowgreen 1px solid;
+}

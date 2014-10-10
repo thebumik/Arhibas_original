@@ -1,0 +1,30 @@
+.slogan_box{ :style => "background-color: ##{settings[:sidebar_background].gsub('#', '')};" }
+  %span.text= t(:'sidebar.slogan')
+  = link_to t(:'sidebar.read_more'), page_path(I18n.locale, 'history'), { :class => 'read_more' }
+
+.tree
+  %h2= t(:'sidebar.categories')
+  - display_nested_tree(Category.include(:translations).exclude(97).all) do |category|
+    - cat = category.translation(I18n.locale)
+    - category_name = h(cat.name.blank? ? MISSING_TRANSLATION : cat.name)
+    - if category.stage.zero?
+      %h3= category_name
+    - else
+      = link_to(category_name, category_path(I18n.locale, category), { :class => 'category_item' })
+
+.tree
+  %h2= t(:'sidebar.projects_tree')
+  %ul
+    - projects = Project.include(:translations).in_sidebar.published.scoped(:order => 'completion DESC').group_by(&:completion)
+    - projects.keys[0..3].each do |year|
+      %li
+        %h3= year
+        %em= "- #{t(:'sidebar.current_year')}"
+        %ul
+          - projects[year][0..2].each do |project|
+            %li
+              - prj = project.translation(I18n.locale)
+              - project_name = h(prj.name.blank? ? MISSING_TRANSLATION : prj.name)
+
+              = link_to_unless_current(project_name, project_path(I18n.locale, project), { :title => project_name }) do
+                - link_to project_name, '#', { :class => :current }

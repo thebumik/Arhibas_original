@@ -1,0 +1,100 @@
+/*__________________________________________________________________________ # BODY (@) sidebar
+*/
+.sidebar {
+  width: 290px;
+  float: left;
+}
+
+/*__________________________________________________________________________ # BODY (@) sidebar.slogan_box
+*/
+.sidebar .slogan_box {
+  background-color: #89dc30;
+  height: 260px;
+  padding: 54px 0px 0 0px;
+}
+
+.sidebar .slogan_box .text {
+  font-size: 25px;
+  font-family: Georgia, Times;
+  color: #fff;
+  line-height: 32px;
+}
+
+.sidebar .slogan_box a.read_more {
+  color: #fff;
+  display: block;
+  background: transparent url('/images/slogan_read_more.gif') no-repeat 0 0;
+  width: 117px;
+  padding: 11px 0 13px 17px;
+  font-size: 13px;
+  margin-top: 15px;
+  text-decoration: none;
+}
+
+.sidebar .slogan_box a.read_more:hover {
+  background-position: 0 -37px;
+}
+
+/*__________________________________________________________________________ # BODY (@) sidebar.tree
+*/
+.sidebar .tree {
+  height: inherit;
+  margin-bottom: 10px;
+}
+
+.sidebar .tree h2 {
+  font-family: Georgia;
+  font-size: 27px;
+  font-weight: normal;
+  color: #eee;
+  padding: 15px 20px 0 14px;
+}
+
+.sidebar .tree h3 {
+  width: 30px;
+}
+
+.sidebar .tree ul li {
+  font-size: 12px;
+  font-family: verdana;
+  color: #b5b5b5;
+  margin-left: 14px;
+  line-height: 19px;
+  padding-right: 10px;
+}
+
+.sidebar .tree ul li a {
+  color: #b5b5b5;
+  text-decoration: none;
+  padding-left: 16px;
+  background: transparent url('/images/list_bullet_gray.gif') no-repeat 0 60%;
+}
+
+.sidebar .tree ul li a.current {
+  color: #89dc32;
+  text-decoration: underline;
+  background: transparent url('/images/list_bullet_green.gif') no-repeat 0 60%;
+}
+
+.sidebar .tree ul li a:hover {
+  color: #89dc32;
+  background: transparent url('/images/list_bullet_green.gif') no-repeat 0 60%;
+}
+
+.sidebar .tree ul li em {
+  color: #fff;
+}
+
+.sidebar .tree ul li.more {
+  text-align: right;
+}
+
+.sidebar .tree ul li.more a {
+  text-decoration: underline;
+  background: none;
+  color: #89dc32;
+}
+
+.sidebar .tree ul li.more a:hover {
+  text-decoration: none;
+}

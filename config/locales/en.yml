@@ -1,0 +1,61 @@
+en:
+  home_page:
+    contacts: "contacts"
+
+  cube:
+    about: "About Arhibas"
+    projects: "Projects"
+    constructions: "Constructions"
+    slogan_p1: "To Reveal a Regularity"
+    slogan_p2: "and Continue the Row"
+
+  sidebar:
+    categories: "Categories"
+    projects_tree: "Projects Tree"
+    read_more: "read more"
+    slogan: "To Reveal a Regularity and Continue the Row"
+    current_year: "view this year's projects"
+
+  project:
+    related_projects: "Related Projects"
+    details:
+      customer: "Customer"
+      location: "Location"
+      architect: "Architect"
+      completion: "Completion date"
+      rating:
+        label: "Rating"
+        message: "Thank you for your vote!"
+        notrated: "this project hasn't been rated, yet"
+        vote:
+          one: "{{count}} vote"
+          few: "{{count}} votes"
+          many: "{{count}} votes"
+          other: "{{count}} votes"
+      comments:
+        title: "Feedbacks"
+        said: "said on"
+        moderation_await: 'Your message is awaiting for moderation.'
+
+  simple_form:
+    models:
+      contact_form: "Arhibas.com - contact form"
+    attributes:
+      name: "Name"
+      company: "Company"
+      address: "Address"
+      city: "City"
+      country: "Country"
+      email: "E-mail"
+      telephone: "Phone"
+      message: "Message"
+      file: "File"
+    messages:
+      blank: "can not be blank"
+      invalid: "is not valid"
+      telephone: "must have eight digits"
+      success: "Thank You! Your message has been successfully sent."
+    request:
+      title: "Technical information about the user"
+      remote_ip: "IP Address"
+      user_agent: "Browser"

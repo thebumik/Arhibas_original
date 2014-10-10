@@ -1,0 +1,51 @@
+.breadcrumb {
+  margin-left: -7px;
+  display: block;
+  height: 17px;
+}
+
+.breadcrumb li {
+  list-style-type: none;
+  float: left;
+  padding-left: 7px;
+  margin-left: 0px !important;
+}
+
+.breadcrumb li a {
+  display: block;
+  text-decoration: none;
+  background: none;
+  font-family: Arial;
+}
+
+.breadcrumb li a span {
+  background: transparent url('../images/icons/bullet_go.png') no-repeat right 60%;
+  padding-right: 23px;
+  text-decoration: underline;
+  color: #2277FF;
+}
+
+.breadcrumb li a:hover span {
+  text-decoration: none;
+}
+
+.breadcrumb li.clear {
+  clear: left;
+  display: block;
+}
+
+.breadcrumb .icon {
+  padding-left: 24px;
+}
+
+.breadcrumb .icon.brand {
+  background: transparent url('../images/icons/page.png') no-repeat 0 50%;
+}
+
+.breadcrumb .icon.page_white_go {
+  background: transparent url('../images/icons/page_white_go.png') no-repeat 0 50%;
+}
+
+.breadcrumb .icon.page {
+  background: transparent url('../images/icons/page.png') no-repeat 0 50%;
+}

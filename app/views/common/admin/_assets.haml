@@ -1,0 +1,5 @@
+- stylesheet = (['reset', 'admin/master', 'admin/tables', 'admin/breadcrumb'] + Array(@extra_stylesheet)).uniq
+- javascript = (['prototype', 'effects', 'application'] + Array(@extra_javascript)).uniq
+= stylesheet_link_tag stylesheet
+- unless javascript.blank?
+  = javascript_include_tag javascript

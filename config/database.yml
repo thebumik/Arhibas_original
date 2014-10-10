@@ -1,0 +1,17 @@
+login: &login
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: postgres
+  database: arhibas_development
+  password: 
+
+development:
+  <<: *login
+
+test:
+  database: arhibas_test
+  <<: *login
+
+production:
+  <<: *login

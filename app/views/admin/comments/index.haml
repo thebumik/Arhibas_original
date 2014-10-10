@@ -1,0 +1,61 @@
+- @extra_stylesheet = ['admin/buttons']
+- content_for :breadcrumb do
+  %ul.breadcrumb
+    %li
+      = content_tag :span, 'Comments'
+
+- unless @comments.blank?
+  - per_pages_list = [10, 20, 50, 100]
+  - if @comments.length >= per_pages_list.first
+    %p
+      Records per page:
+      - for per_page in per_pages_list do
+        = link_to_unless per_page.eql?(params[:per_page].to_i), per_page, url_for(:per_page => per_page, :page => params[:page])
+        = ' <strong>|</strong> ' unless per_page.eql?(per_pages_list.last)
+      %hr
+
+  - unless will_paginate(@comments).blank?
+    = will_paginate @comments
+    %hr
+
+  - form_for :comments do |f|
+    %table.qtable{ :style => 'width: 100%' }
+      %tr
+        %th #
+        %th Author
+        %th Message
+        %th Should appear on
+        %th Active?
+        %th{ :colspan => 3 } actions
+  
+      - for comment in @comments do
+        %tr
+          %td
+            = check_box_tag "comments_ids[]", comment.id, false, { :id => "comment_#{comment.id}" }
+          %td{ :style => "text-align: left" }
+            - html_options = {}
+            - html_options[:style] = "color: red" unless comment.active? 
+            = link_to h(comment.author), edit_admin_comment_path(comment), html_options
+          %td= h(comment.body)
+          %td= link_to comment.project.name, project_path('ro', comment.project)
+          %td= comment.active? ? '<span style="color: green">yes</span>' : '<span style="color: red">no</span>'
+          %td= link_to 'edit', edit_admin_comment_path(comment)
+          %td= link_to 'delete', admin_comment_path(comment, :per_page => params[:per_page], :page => params[:page]), :method => :delete, :confirm => 'Are you sure?'
+    %hr
+    %div.buttons
+      %button.positive{ :type => :submit, :name => :commit, :value => 'activate' }
+        = image_tag 'icons/tick.png'
+        %span
+          %span Approve
+
+      %button.negative{ :type => :submit, :name => :commit, :value => 'delete'  }
+        = image_tag 'icons/delete.png'
+        %span
+          %span Delete
+
+  - unless will_paginate(@comments).blank?
+    %hr
+    = will_paginate @comments
+
+- else
+  %p no comments has been found... Just go ahead and add some ;)

@@ -1,0 +1,33 @@
+- object.fields_for :translations do |t|
+  %div{ :id => dom_id(t.object, t.object.lang) }
+    %fieldset
+      = t.hidden_field :lang
+      %table.formfield
+        %tr
+          %td= t.label :name
+          %td.string= t.text_field :name
+
+        %tr
+          %td= t.label :customer
+          %td.string= t.text_field :customer
+
+        %tr
+          %td= t.label :location
+          %td.string= t.text_field :location
+
+        %tr
+          %td= t.label :arhitect
+          %td.string= t.text_field :arhitect
+
+        %tr
+          %td.textarea.medium{ :colspan => 2 }
+            %hr
+            = t.label :description
+            = t.text_area :description, :style => 'margin-top: 4px;'
+
+        %tr
+          %td.textarea{ :colspan => 2 }
+            %hr
+            = t.label :body_markdown, 'Content'
+            = t.text_area :body_markdown, :style => 'margin-top: 4px;'
+            %p{ :style => "color: green; padding: 3px 0;" }= "use <strong>markdow</strong> for syntax!"

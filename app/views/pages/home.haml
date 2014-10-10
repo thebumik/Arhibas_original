@@ -1,0 +1,27 @@
+- content_for :extra_js do
+  :javascript
+    var quickGalleryFlow = {
+      start: function(){
+        var mf = new MooFlow($('quickGallery'), {
+          useSlider: false,
+          startIndex: 3,
+          useAutoPlay: false,
+          useCaption: false,
+          useResize: false,
+          useKeyInput: true,
+          bgColor: 'transparent',
+          useMouseWheel: true,
+          interval: 5000,
+          offsetY: 80,
+          factor: 90,
+          reflection: 0.23,
+        });
+      }
+    };
+    window.addEvent('domready', quickGalleryFlow.start);
+
+#quickGallery
+  - @projects.each do |project|
+    - if (project.photos.first.data(:medium) rescue false)
+      - project_translation = project.translation(I18n.locale)
+      %div= image_tag project.photos.first.data(:medium), { :title => h(project_translation.name) }

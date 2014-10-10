@@ -1,0 +1,6 @@
+%ul
+  %li
+    = link_to_unless_current('Categories', admin_categories_path) { content_tag :span, 'Categories' }
+    - display_nested_tree(Category.all) do |category|
+      = link_to_unless_current category.name, admin_category_path(category) do
+        - content_tag :span, category.name

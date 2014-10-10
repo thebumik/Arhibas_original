@@ -1,0 +1,21 @@
+.inbody
+  %h1= h(@category_translation.name.blank? ? MISSING_TRANSLATION : @category_translation.name)
+  - unless @category_translation.description.blank?
+    %div.description
+      = @category_translation.description
+%hr
+
+.software
+  %ul
+    - @category.projects.include([:translations]).each do |project|
+      - project_translation = project.translation(I18n.locale)
+      %li
+        .description
+          %h1= link_to project_translation.name, project_path(I18n.locale, project)
+          %p= project_translation.description
+
+        .box
+          = image_tag("static/box_#{@book_box[project.id]}.jpg")
+        .button
+          = link_to image_tag("buttons/buy_now_#{I18n.locale}.gif"), project_path(I18n.locale, project)
+          = link_to image_tag("buttons/learn_more_#{I18n.locale}.gif"), project_path(I18n.locale, project)

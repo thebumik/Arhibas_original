@@ -1,0 +1,44 @@
+!!! Strict
+%html{ html_attrs(I18n.locale) }
+  %head
+    %meta{ 'http-equiv' => 'Content-Type', :content => 'text/html; charset=utf-8' }
+    %title= "Arhibas.com :: #{t(:'sidebar.slogan')}"
+    = stylesheet_link_tag 'reset', 'master'
+    - unless yield(:extra_css).blank?
+      = yield :extra_css
+
+    - unless extra_css_inline.blank?
+      %style{:type => "text/css", :media => "screen"}
+        :plain
+          #{extra_css_inline}
+
+    / [if IE]
+      = stylesheet_link_tag 'ie/master'
+      = render :partial => 'common/belated_png'
+
+    - unless yield(:extra_script).blank?
+      = yield :extra_script
+
+  %body
+    #wrapper
+      #header{ :class => I18n.locale }
+        .languages
+          - ['ro', 'ru', 'en'].each do |lang|
+            - html_options = lang.eql?(I18n.locale) ? { :class => :current } : {}
+            = link_to image_tag("icons/flags/#{lang}.gif", html_options), url_for(:id => params[:id], :locale => lang)
+        .logo
+          = link_to image_tag('logo.png', :alt => "Arhibas.com - #{t(:'sidebar.slogan').downcase}"), home_page_path
+        .menu
+          = render :partial => 'common/top_navigation'
+      #sub_header
+        / subheader
+      #body
+        .content
+          = yield
+        .sidebar
+          = render :partial => '/common/sidebar'
+
+        .clean
+          / cleaner
+      #footer
+        = render :partial => 'common/footer'

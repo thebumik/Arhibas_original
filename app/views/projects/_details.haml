@@ -1,0 +1,24 @@
+%h1= h(@project_translation.name)
+- unless @project_translation.description.blank?
+  .description
+    = Maruku.new(@project_translation.description).to_html
+%ul.details
+  - unless @project_translation.customer.blank?
+    %li
+      %p.label= t(:'project.details.customer')
+      %p.data= h(@project_translation.customer)
+
+  - unless @project_translation.location.blank?
+    %li
+      %p.label= t(:'project.details.location')
+      %p.data= h(@project_translation.location)
+
+  - unless @project.arhitect.blank?
+    %li
+      %p.label= t(:'project.details.architect')
+      %p.data= h(@project_translation.arhitect)
+
+  - unless @project.completion.blank?
+    %li
+      %p.label= t(:'project.details.completion')
+      %p.data= h(@project.completion)

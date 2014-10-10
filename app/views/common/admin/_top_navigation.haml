@@ -1,0 +1,9 @@
+%div.account
+  = "You are loggen in as #{link_to(current_user.login, admin_account_path)} | "
+  = link_to 'Logout', admin_logout_path
+
+%ul
+  - ['Pages', 'Categories', 'Projects', 'Comments', 'Settings'].each do |menu|
+    %li
+      = link_to_unless(controller.controller_name.eql?(menu.downcase), menu.eql?('Comments') ? 'Comments manager' : menu, :controller => menu.downcase) do |name|
+        - link_to name.eql?('Comments') ? 'Comments manager' : name, '#', :class => :active, :onclick => 'return false;'

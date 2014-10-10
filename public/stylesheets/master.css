@@ -1,0 +1,753 @@
+/*__________________________________________________________________________ # GLOBAL styles
+*/
+body {
+  background-color: #aadeff;
+  text-align: center;
+  font-family: Tahoma, 'Trebuchet MS', Arial;
+  font-size: 15px;
+}
+
+div {
+  display: block;
+}
+
+hr {
+  height: 1px;
+  padding: 0;
+  margin: 7px 10px;
+  border: none;
+  background-color: #444;
+}
+
+/*__________________________________________________________________________ # GLOBAL cleaners
+*/
+.clean {
+  clear: both;
+}
+
+.clean.left {
+  clear: left;
+}
+
+.clean.right {
+  clear: right;
+}
+
+/*__________________________________________________________________________ # WRAPPER
+*/
+#wrapper {
+  position: relative;
+  min-width: 900px;
+  width: 900px;
+  text-align: left;
+  margin: 0 auto;
+  margin-bottom: 20px !important;
+}
+
+/*__________________________________________________________________________ # HEADER
+*/
+#header {
+  margin-top: 0px;
+  height: 65px;
+  border-bottom: #7e7f9e 2px solid;
+}
+
+#header .languages {
+  display: block;
+  margin-top: 2px;
+}
+
+#header .languages a {
+  margin-right: 2px;
+}
+
+#header .languages a img {
+  border: #eee 1px solid;
+  padding: 1px;
+  margin: 0px;
+}
+
+#header .languages a img.current {
+  border: dodgerblue 1px solid;
+}
+
+#header .menu {
+  float: left;
+  margin-top: 4px;
+}
+
+#header .menu a {
+  display: block;
+  float: left;
+  margin-right: 19px;
+  height: 31px;
+}
+
+#header .menu a:hover {
+  opacity: 0.5;
+}
+
+
+#header.ro .menu a.about {
+  width: 128px;
+  background: transparent url('/images/menu/despre_arhibas.png') no-repeat 0 50%;
+}
+
+#header.ro .menu a.projects {
+  width: 72px;
+  background: transparent url('/images/menu/proiecte.png') no-repeat 0 50%;
+}
+
+#header.ro .menu a.constructions {
+  width: 99px;
+  background: transparent url('/images/menu/constructii.png') no-repeat 0 50%;
+}
+
+#header.ro .menu a.software_distribution {
+  width: 107px;
+  background: transparent url('/images/menu/software-distribution.png') no-repeat 0 50%;
+}
+
+#header.ro .menu a.design_poligrafie {
+  width: 91px;
+  background: transparent url('/images/menu/design_poligrafie.png') no-repeat 0 50%;
+}
+
+#header.ro .menu a.contacte {
+  width: 71px;
+  background: transparent url('/images/menu/contacte.png') no-repeat 0 50%;
+}
+
+
+/*---------------*/
+#header.ru .menu a.about {
+  width: 88px;
+  background: transparent url('/images/menu/ru/despre_arhibas.png') no-repeat 0 50%;
+}
+
+#header.ru .menu a.projects {
+  width: 72px;
+  background: transparent url('/images/menu/ru/proiecte.png') no-repeat 0 50%;
+}
+
+#header.ru .menu a.constructions {
+  width: 89px;
+  background: transparent url('/images/menu/ru/constructii.png') no-repeat 0 50%;
+}
+
+#header.ru .menu a.software_distribution {
+  width: 75px;
+  background: transparent url('/images/menu/ru/software-distribution.png') no-repeat 0 50%;
+}
+
+#header.ru .menu a.design_poligrafie {
+  width: 91px;
+  background: transparent url('/images/menu/ru/design_poligrafie.png') no-repeat 0 50%;
+}
+
+#header.ru .menu a.contacte {
+  width: 71px;
+  background: transparent url('/images/menu/ru/contacte.png') no-repeat 0 50%;
+}
+
+/*---------------*/
+#header.en .menu a.about {
+  width: 128px;
+  background: transparent url('/images/menu/en/despre_arhibas.png') no-repeat 0 50%;
+}
+
+#header.en .menu a.projects {
+  width: 72px;
+  background: transparent url('/images/menu/en/proiecte.png') no-repeat 0 50%;
+}
+
+#header.en .menu a.constructions {
+  width: 119px;
+  background: transparent url('/images/menu/en/constructii.png') no-repeat 0 50%;
+}
+
+#header.en .menu a.software_distribution {
+  width: 107px;
+  background: transparent url('/images/menu/en/software-distribution.png') no-repeat 0 50%;
+}
+
+#header.en .menu a.design_poligrafie {
+  width: 91px;
+  background: transparent url('/images/menu/en/design_poligrafie.png') no-repeat 0 50%;
+}
+
+#header.en .menu a.contacte {
+  width: 71px;
+  background: transparent url('/images/menu/en/contacte.png') no-repeat 0 50%;
+}
+
+#header .logo {
+  float: right;
+}
+
+/*__________________________________________________________________________ # BREADCRUMB
+*/
+#sub_header {
+  padding: 14px 0;
+  font-size: 14px;
+  clear: both;
+}
+
+#sub_header .map {
+  color: #990808;
+}
+
+/*__________________________________________________________________________ # BODY
+*/
+#body {
+  background: #1d1d1d url('/images/body_background.gif') repeat-y;
+}
+
+/*__________________________________________________________________________ # BODY (@) content
+*/
+#body .content {
+  width: 610px;
+  float: left;
+  font-family: tahoma;
+  font-size: 12px;
+  line-height: 17px;
+}
+
+/*__________________________________________________________________________ # BODY (@) inbody
+*/
+#body .inbody {
+  padding: 10px;
+  font: normal 14px "Trebuchet MS", Tahoma;
+  line-height: 19px;
+  color: #ddd;
+}
+
+#body .inbody p {
+  margin-bottom: 10px;
+}
+
+#body .inbody li {
+  list-style: square;
+  list-style-position: inside;
+  margin-bottom: 5px;
+}
+
+#body .inbody h1 {
+  font-family: Georgia;
+  font-size: 27px;
+  font-weight: normal;
+  line-height: 24px;
+  color: #eee;
+  padding: 0px 20px 10px 0;
+}
+
+#body .inbody h2 {
+  font-family: Arial;
+  color: #eee;
+  font-weight: normal;
+  font-size: 17px;
+  background-color: #222;
+  display: inline-block;
+  margin-top: 5px;
+}
+
+#body .inbody a {
+  color: #27f;
+}
+
+#body .inbody img {
+  padding: 5px;
+  border: #aaa 1px solid;
+  margin: 5px 0;
+}
+
+#body .inbody img[align=left] {
+  margin-left: 0px;
+}
+
+#body .inbody img[align=right] {
+  margin-right: 0px;
+}
+
+#body .inbody a:hover {
+  text-decoration: none;
+  color: #79d;
+}
+
+
+#body .inbody .subcategories {}
+#body .inbody .subcategories li {
+  list-style: none;
+}
+
+#body .inbody .subcategories li a {
+  color: #8CDB30;
+  font-weight: normal;
+  font-size: 17px;
+  line-height: 27px;
+}
+
+/*__________________________________________________________________________ # BODY (@) content.slide_show
+*/
+#body .content .slide_show {}
+
+#body .content .slide_show .screen {
+  height: 314px;
+  background-color: #222;
+}
+
+#body .content .slide_show .thumbs {
+  position: relative;
+  height: 53px;
+  margin-top: 10px;
+}
+
+#body .content .slide_show .thumbs .images {
+  text-align: center;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 28px;
+  right: 28px;
+}
+
+#body .content .slide_show .thumbs .images li {
+  display: inline;
+}
+
+#body .content .slide_show .thumbs .images li img {
+  padding: 3px;
+  border: #ccc 1px solid;
+  opacity: 0.4;
+  margin: 0 3px;
+}
+
+#body .content .slide_show .thumbs .images img:hover {
+  opacity: 0.7;
+  border-color: orangered;
+}
+
+#body .content .slide_show .thumbs .images img.active {
+  opacity: 1.0;
+  border: orangered 1px solid;
+}
+
+#body .content .slide_show .thumbs a {
+  width: 16px;
+  height: 20px;
+  cursor: pointer;
+}
+
+#body .content .slide_show .thumbs a.next {
+  position: absolute;
+  right: 10px;
+  top: 14px;
+  background: transparent url('/images/gallery_thumb_next.gif') no-repeat 50% 50%;
+}
+
+#body .content .slide_show .thumbs a.back {
+  position: absolute;
+  left: 10px;
+  top: 14px;
+  background: transparent url('/images/gallery_thumb_back.gif') no-repeat 50% 50%;
+}
+
+#body .content .slide_show .thumbs a:hover {
+  opacity: 0.4;
+}
+
+/*__________________________________________________________________________ # BODY (@) content.project
+*/
+#body .content .project {
+  padding: 0px 10px;
+}
+
+#body .content .project h1 {
+  font-family: Georgia;
+  font-size: 27px;
+  font-weight: normal;
+  line-height: 24px;
+  color: #eee;
+  padding: 15px 20px 10px 0;
+}
+
+#body .content .project .description {
+  color: #b5b5b5;
+  margin: 10px 0;
+  border-right: 1px solid #3c3c3c;
+  padding: 5px 10px 5px 0;
+  float: left;
+  margin-right: 15px;
+}
+
+#body .content .project .description h2 {
+  font-size: 12px;
+  font-weight: normal;
+  font-family: verdana;
+  color: #8cdb30;
+  background-color: #333;
+  display: inline-block;
+  padding: 1px 4px;
+}
+
+#body .content .project .description p {
+  margin-bottom: 5px;
+  width: 350px;
+}
+
+#body .content .project .content {
+  color: #ccc;
+  font: normal 13px "Trebuchet MS", Arial;
+  line-height: 19px;
+  width: 580px;
+}
+
+#body .content .project .content h3 {
+  margin-top: 15px;
+}
+
+#body .content .project .content p {
+  margin-bottom: 10px;
+}
+
+#body .content .project .content ul {
+  list-style: square;
+  list-style-position: inside;
+}
+
+#body .content .project .content ul li {
+  margin-bottom: 5px;
+  color: #eee;
+}
+
+#body .content .project .details {
+  float: left;
+  font-size: 14px;
+}
+
+#body .content .project .details li {
+  margin-bottom: 8px;
+}
+
+#body .content .project .details li p.label {
+  color: #89dc30;
+  margin-bottom: 2px;
+}
+
+#body .content .project .details li p.data {
+  color: #fff;
+}
+
+/*__________________________________________________________________________ # BODY (@) content.project
+*/
+#body .content .projects {
+  padding: 0px 10px;
+}
+
+#body .content .projects h1 {
+  font-family: Georgia;
+  font-size: 24px;
+  font-weight: normal;
+  line-height: 24px;
+  color: #eee;
+  padding: 15px 20px 10px 0;
+}
+
+#body .content .projects li {
+  float: left;
+  margin: 0 10px 10px 0;
+  list-style: none;
+  border: #ccc 1px solid;
+  width: 180px;
+  background-color: #eee;
+  padding: 2px;
+}
+
+#body .content .projects li a {
+  color: #27d;
+}
+
+#body .content .projects li a:hover {
+  text-decoration: none;
+  color: #999;
+}
+
+/*__________________________________________________________________________ # BODY (@) content.software
+*/
+#body .content .software {
+  padding: 0px 10px 70px 10px;
+}
+
+#body .content .software ul li {
+  border-bottom: #444 1px solid;
+  padding-bottom: 10px;
+}
+
+#body .content .software ul li .description {
+  float: left;
+  width: 460px;
+}
+
+#body .content .software ul li .box {
+  float: left;
+}
+
+#body .content .software ul li .button {
+  clear: left;
+  text-align: right;
+  padding-right: 12px;
+}
+
+#body .content .software ul li .description h1 {
+  font-family: Georgia;
+  font-size: 17px;
+  font-weight: normal;
+  line-height: 24px;
+  padding: 15px 20px 0 0;
+}
+
+#body .content .software ul li .description h1 a {
+  color: #8cdb30;
+}
+
+#body .content .software ul li .description h1 a:hover {
+  text-decoration: none;
+}
+
+#body .content .software ul li .description p {
+  color: #eee;
+  font-size: 14px;
+  font-family: "Trebuchet MS";
+  line-height: 19px;
+}
+
+/*__________________________________________________________________________ # BODY (@) content.category
+*/
+#body .content .category {
+  padding: 0px 10px;
+}
+
+#body .content .category h1 {
+  font-family: Georgia;
+  font-size: 24px;
+  font-weight: normal;
+  line-height: 24px;
+  color: #eee;
+  padding: 15px 20px 10px 0;
+}
+
+#body .content .category .description {
+  font: italic 15px georgia;
+  color: #fff;
+}
+
+/*__________________________________________________________________________ # BODY (@) sidebar
+*/
+#body .sidebar {
+  width: 290px;
+  float: left;
+}
+
+/*__________________________________________________________________________ # BODY (@) sidebar.slogan_box
+*/
+#body .sidebar .slogan_box {
+  background-color: #89dc30;
+  height: 260px;
+  padding: 54px 10px 0 20px;
+}
+
+#body .sidebar .slogan_box .text {
+  font-size: 25px;
+  font-family: Georgia, Times;
+  color: #fff;
+  line-height: 32px;
+}
+
+#body .sidebar .slogan_box a.read_more {
+  color: #fff;
+  display: block;
+  background: transparent url('/images/slogan_read_more.png') no-repeat 0 0;
+  width: 117px;
+  padding: 11px 0 13px 17px;
+  font-size: 13px;
+  margin-top: 15px;
+  text-decoration: none;
+}
+
+#body .sidebar .slogan_box a.read_more:hover {
+  background-position: 0 -37px;
+}
+
+/*__________________________________________________________________________ # BODY (@) sidebar.tree
+*/
+#body .sidebar .tree {
+  height: inherit;
+  margin-bottom: 10px;
+}
+
+#body .sidebar .tree h2 {
+  font-family: Georgia;
+  font-size: 27px;
+  font-weight: normal;
+  color: #eee;
+  padding: 15px 20px 0 14px;
+}
+
+#body .sidebar .tree h3 {
+  font-size: 12px;
+  font-weight: normal;
+  font-family: verdana;
+  color: #8cdb30;
+  margin-top: 10px;
+  margin-bottom: 4px;
+  background-color: #333;
+  display: inline-block;
+  padding: 1px 4px;
+}
+
+#body .sidebar .tree ul li {
+  font-size: 12px;
+  font-family: verdana;
+  color: #b5b5b5;
+  margin-left: 14px;
+  line-height: 19px;
+  padding-right: 10px;
+}
+
+#body .sidebar .tree ul li a {
+  color: #b5b5b5;
+  text-decoration: none;
+  padding-left: 16px;
+  background: transparent url('/images/list_bullet_gray.gif') no-repeat 0 60%;
+}
+
+#body .sidebar .tree ul li a.current {
+  color: #89dc32;
+  text-decoration: underline;
+  background: transparent url('/images/list_bullet_green.gif') no-repeat 0 60%;
+}
+
+#body .sidebar .tree ul li a:hover {
+  color: #89dc32;
+  background: transparent url('/images/list_bullet_green.gif') no-repeat 0 60%;
+}
+
+#body .sidebar .tree ul li em {
+  color: #fff;
+}
+
+#body .sidebar .tree ul li.more {
+  text-align: right;
+}
+
+#body .sidebar .tree ul li.more a {
+  text-decoration: underline;
+  background: none;
+  color: #89dc32;
+}
+
+#body .sidebar .tree ul li.more a:hover {
+  text-decoration: none;
+}
+
+/*__________________________________________________________________________ # FOOTER
+*/
+#footer {
+  border-top: #363636 1px solid;
+  background-color: #1d1d1d;
+  color: #929293;
+  font-size: 15px;
+}
+
+#footer p {
+  padding: 15px 20px;
+}
+
+#footer p a {
+  color: #929293;
+  text-decoration: underline;
+}
+
+#footer p a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+#footer p span {
+  padding: 0 10px;
+}
+
+
+/*__________________________________________________________________________ # contact_form
+*/
+.contact_form {
+  padding: 10px;
+}
+
+.contact_form ul li {
+  list-style: none;
+  margin: 4px;
+}
+
+.contact_form ul li label {
+  display: inline-block;
+  width: 100px;
+  color: #ddd;
+  font: normal 14px "Trebuchet MS", Arial;
+}
+
+.contact_form ul li input[type=text], .contact_form ul li textarea {
+  border: #555 1px solid;
+  background-color: #333;
+  padding: 4px;
+  width: 230px;
+  color: #aaa;
+}
+
+.contact_form ul li textarea {
+  width: 440px;
+  height: 100px;
+}
+
+.contact_form ul li input:focus, .contact_form ul li textarea:focus {
+  border-color: #777;
+  background-color: #444;
+  color: #eee;
+}
+
+.contact_form ul li input.send_button {
+  margin-left: 104px;
+  margin-top: 5px;
+}
+
+.errorExplanation {
+  border: #900 1px solid;
+  padding: 10px;
+  color: #c00;
+  background-color: #fdd;
+  outline: 3px solid #fff;
+  margin-bottom: 15px;
+}
+
+.contact_form ul li .fieldWithErrors {
+  display: inline-block;
+}
+
+.contact_form ul li .fieldWithErrors label {
+  color: red;
+}
+
+.contact_form ul li .fieldWithErrors input {
+  border: red 1px solid;
+}
+
+.flash_notice {
+  border: green 1px solid;
+  padding: 10px;
+  color: darkgreen;
+  background-color: #dfd;
+  font: normal 14px "Trebuchet MS", Arial;
+  outline: 3px solid #fff;
+  margin-bottom: 15px;
+}
+

@@ -1,0 +1,20 @@
+.inbody
+  %h1= h(@category_translation.name.blank? ? MISSING_TRANSLATION : @category_translation.name)
+  - unless @category_translation.description.blank?
+    %div.description
+      = @category_translation.description
+%hr
+
+.inbody
+  - if @category.root?
+    %ul.subcategories
+      - @category.leaves.include([:translations]).each do |category|
+        - category_translation = category.translation(I18n.locale)
+        %li= link_to category_translation.name, category_path(I18n.locale, category)
+
+.projects
+  - @category.projects.include([:translations, :photos]).each do |project|
+    - project_translation = project.translation(I18n.locale)
+    %li
+      = link_to image_tag(project.photos.first.data.url(:medium)), project_path(I18n.locale, project)
+      %p= link_to truncate(project_translation.name, :length => 28), project_path(I18n.locale, project)

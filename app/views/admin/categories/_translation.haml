@@ -1,0 +1,14 @@
+- object.fields_for :translations do |t|
+  %div{ :id => dom_id(t.object, t.object.lang) }
+    %fieldset
+      = t.hidden_field :lang
+      %table.formfield
+        %tr
+          %td= t.label :name
+          %td.string= t.text_field :name
+
+        %tr
+          %td.textarea.medium{ :colspan => 2 }
+            %hr
+            = t.label :description
+            = t.text_area :description, :style => 'margin-top: 4px;'

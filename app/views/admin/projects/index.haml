@@ -1,0 +1,52 @@
+- @extra_stylesheet = ['admin/buttons']
+- content_for :breadcrumb do
+  %ul.breadcrumb
+    %li
+      = content_tag :span, 'Projects'
+
+- unless @projects.blank?
+  - per_pages_list = [10, 20, 50, 100]
+  - if @projects.length >= per_pages_list.first
+    %p
+      Projects per page:
+      - for per_page in per_pages_list do
+        = link_to_unless per_page.eql?(@per_page), per_page, url_for(:per_page => per_page, :page => @page_num)
+        = ' <strong>|</strong> ' unless per_page.eql?(per_pages_list.last)
+      %hr
+
+  - unless will_paginate(@projects).blank?
+    = will_paginate @projects
+    %hr
+
+  %table.qtable{ :style => 'width: 100%' }
+    %tr
+      %th ID
+      %th Name
+      %th Category
+      %th Customer
+      %th Location
+      %th Completion
+      %th{ :colspan => 3 } actions
+
+    - @projects.each_with_index do |project, index|
+      %tr
+        %td= @per_page * @page_num + index + 1 - (@per_page || 0)
+        %td= link_to h(project.name), edit_admin_project_path(project.id)
+        %td= h(project.category.name)
+        %td= project.customer.blank? ? '---' : h(project.customer)
+        %td= project.location.blank? ? '---' : h(project.location)
+        %td= project.completion.blank? ? '---' : h(project.completion)
+        %td= link_to 'show', admin_project_path(project.id)
+        %td= link_to 'edit', edit_admin_project_path(project.id)
+        %td= link_to 'delete', admin_project_path(project.id), :method => :delete, :confirm => 'Are you sure?'
+
+  - unless will_paginate(@projects).blank?
+    %hr
+    = will_paginate @projects
+
+- else
+  %p no projects has been found... Just go ahead and add some ;)
+
+%hr
+.i_buttons{ :style => 'margin-top: 15px;' }
+  = link_to 'new project', new_admin_project_path, :class => :page_add

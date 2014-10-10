@@ -1,0 +1,63 @@
+- content_for :extra_css do
+  = stylesheet_link_tag 'project'
+
+#photos.galleryview
+  = render :partial => 'gallery'
+
+.project
+  = render :partial => 'details'
+
+.clean
+  / cleaner
+
+.rating
+  = render :partial => 'rating'
+
+%hr
+
+#comments
+  %h3= t(:'project.details.comments.title')
+  %ul.list
+    - @comments.each do |comment|
+      = one_comment(comment)
+
+  .new
+    - form_for Comment.new, :url => comment_project_path(I18n.locale, @project.id), :html => { :autocomplete => :off } do |f|
+      %ul
+        %li
+          = f.label :author, 'Your Name'
+          = f.text_field :author
+        %li
+          = f.label :body, 'Message', { :style => "vertical-align: top;" }
+          = f.text_area :body
+        %li
+          = image_submit_tag 'buttons/send_en.gif', :class => :send_button
+          %span#comments_spinner{ :style => 'margin-left: 20px; display: none;' }= image_tag('ajax-loader.gif')
+
+    :javascript
+      var form = $('#new_comment');
+      form.ajaxForm({
+        dataType: 'json',
+        beforeSubmit: function(){ $('#comments_spinner').show() },
+        success: function(e){
+          if(e.validation){
+            for(i in e.validation){
+              $('#comment_'+e.validation[i]).addClass('invalid').focus(function(){ $(this).removeClass('invalid') })
+            }
+          } else {
+            $("#comments .list").prepend(e.comment);
+            $("#comments .list li:first").hide().fadeIn(1200);
+            form.clearForm();
+          }
+          $('#comments_spinner').hide();
+        }
+      })
+
+%hr
+.projects
+  %h1= t(:'project.related_projects')
+  - Project.limit(3).exclude(@project).include([:translations, :photos]).scoped(:conditions => { :category_id => @project.category_id }).each do |project|
+    - project_translation = project.translation(I18n.locale)
+    %li
+      = link_to image_tag(project.photos.first.data.url(:medium)), project_path(I18n.locale, project)
+      %p= link_to truncate(project_translation.name, :length => 28), project_path(I18n.locale, project)

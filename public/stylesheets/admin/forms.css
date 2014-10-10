@@ -1,0 +1,299 @@
+/* NORMALIZE AND RESET
+--------------------------------------------------------------------------------------------------*/
+form.qform, form.qform ul, form.qform ol, form.qform li, form.qform fieldset,
+form.qform legend, form.qform input, form.qform textarea, form.qform p { margin: 0; padding: 0; }
+form.qform fieldset { border: 0; }
+form.qform em, form.qform strong { font-style: normal; font-weight: normal; }
+form.qform ol, form.qform ul { list-style: none; }
+form.qform abbr, form.qform acronym { border: 0; font-variant: normal; }
+form.qform input, form.qform textarea, form.qform select { font-family: inherit; font-size: inherit; font-weight: inherit; }
+form.qform input, form.qform textarea, form.qform select { font-size: 100%; }
+form.qform legend {
+  color: #000;
+  padding: 0 5px;
+  margin-left: 10px;
+  font-size: 17px;
+}
+
+/* Rails wraps error fields with divs */
+div.fieldWithErrors { display: inline; margin: 0; padding: 0; }
+
+
+/* form.qform */
+form.qform {
+  padding: 15px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  font-size: 13px;
+  background-color: #f7f7f7;
+}
+
+
+/* FIELDSETS & LISTS
+--------------------------------------------------------------------------------------------------*/
+form.qform fieldset {
+  border: 1px solid #3A9BFD;
+  /*
+  -moz-border-radius: 0 12px;
+  -webkit-border-radius: 7px;
+  */
+  background: transparent url('/images/gradient_1.gif') repeat-x 100% 1px;
+  padding-bottom: 7px;
+  padding-top: 7px;
+  margin-bottom: 7px;
+}
+
+form.qform fieldset.inputs { border: 1px solid #ccc; }
+form.qform fieldset.buttons { padding: 10px; }
+form.qform fieldset ol { position: relative; }
+
+/* clearfixing the fieldsets */
+form.qform fieldset { display: inline-block; }
+form.qform fieldset:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+html[xmlns] form.qform fieldset { display: block; }
+* html form.qform fieldset { height: 1%; }
+
+
+/* INPUT LIs
+--------------------------------------------------------------------------------------------------*/
+form.qform fieldset ol li {
+  padding: 4px 0 8px 0;
+  margin: 0 10px;
+}
+
+/* clearfixing the li's */
+form.qform fieldset ol li {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+}
+form.qform fieldset ol li:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+html[xmlns] form.qform fieldset ol li { display: block; }
+* html form.qform fieldset ol li { height: 1%; }
+
+form.qform fieldset ol li.required {  }
+form.qform fieldset ol li.optional {  }
+form.qform fieldset ol li.error { background: #FFCCCC; }
+  
+
+/* LABELS
+--------------------------------------------------------------------------------------------------*/
+form.qform fieldset ol li label {
+  display: block;
+  width: 15%;
+  margin-top: 4px;
+  float: left;
+}
+
+/* INLINE HINTS
+--------------------------------------------------------------------------------------------------*/
+form.qform fieldset ol li p.inline-hints {
+  color: #666;
+  margin: 5px 0 0 0;
+  font-size: 12px;
+  padding-left: 19px;
+  /*
+  background: transparent url('../images/icons/information.png') no-repeat 0 50%;
+  */
+  clear: both;
+  float: right;
+  text-align: left;
+  width: 81%;
+}
+
+form.qform fieldset ol li.boolean p.inline-hints {
+  color: #666;
+  margin: 5px 0 0 -2px;
+  font-size: 12px;
+  padding-left: 19px;
+  /*
+  background: transparent url('../images/icons/information.png') no-repeat 0 50%;
+  */
+  clear: both;
+  float: left;
+  text-align: left;
+}
+
+
+
+
+/* INLINE ERRORS
+--------------------------------------------------------------------------------------------------*/
+form.qform fieldset ol li p.inline-errors { color:red; margin:0.5em 0 0 20%; }
+form.qform fieldset ol li ul.errors { color:red; margin:0.5em 0 0 20%; list-style:square; }
+form.qform fieldset ol li ul.errors li { padding:0; border:none; display:list-item; }
+
+/* STRING & NUMERIC OVERRIDES
+--------------------------------------------------------------------------------------------------*/
+form.qform fieldset ol li.string input {
+  width: 82%;
+  float: right;
+  border: #222 1px inset;
+  padding: 3px;
+  color: #333;
+}
+
+form.qform fieldset ol li.string input:focus {
+  background-color: #ffd;
+  outline: 3px solid #f3ec99;
+  color: #000;
+}
+
+form.qform fieldset ol li.numeric input { width:78%; }
+
+form.qform fieldset ol li select {
+  float: left;
+}
+
+/* TEXTAREA OVERRIDES
+--------------------------------------------------------------------------------------------------*/
+form.qform fieldset ol li.text textarea {
+  width: 82%;
+  float: right;
+  border: #222 1px inset;
+  padding: 3px;
+  color: #333;
+}
+
+
+form.qform fieldset ol li.text.full textarea {
+  width: 99.3%;
+  float: none;
+}
+
+form.qform fieldset ol li.text textarea:focus {
+  background-color: #ffd;
+  outline: 3px solid #f3ec99;
+  color: #000;
+}
+
+
+/* BOOLEAN (CHECKBOX) OVERRIDES
+--------------------------------------------------------------------------------------------------*/
+form.qform fieldset ol li.boolean label { width: 15%;  }
+form.qform fieldset ol li.boolean label input { margin: 0 0.5em 0 0em; }
+
+
+/* BELONGS_TO (RADIO) OVERRIDES
+--------------------------------------------------------------------------------------------------*/
+form.qform fieldset ol li.radio fieldset {}
+form.qform fieldset ol li.radio fieldset legend { display: block; float: left; width: 20%; position: relative; }
+form.qform fieldset ol li.radio fieldset legend span {}
+form.qform fieldset ol li.radio fieldset ol { float: left; width: 78%; }
+form.qform fieldset ol li.radio fieldset ol li { padding: 0; border: 0; margin-bottom: .2em; }
+form.qform fieldset ol li.radio fieldset ol li label { float: none; width: 100%; }
+form.qform fieldset ol li.radio fieldset ol li label input { margin-right: 0.5em; }
+
+
+/* DATE & TIME OVERRIDES
+--------------------------------------------------------------------------------------------------*/
+form.qform fieldset ol li.date fieldset,
+form.qform fieldset ol li.time fieldset,
+form.qform fieldset ol li.datetime fieldset {}
+
+form.qform fieldset ol li.date fieldset legend,
+form.qform fieldset ol li.time fieldset legend,
+form.qform fieldset ol li.datetime fieldset legend,
+
+form.qform fieldset ol li.date fieldset legend,
+form.qform fieldset ol li.time fieldset legend,
+form.qform fieldset ol li.datetime fieldset legend { display: block; float: left; width: 20%; position: relative; }
+
+form.qform fieldset ol li.date fieldset legend span,
+form.qform fieldset ol li.time fieldset legend span,
+form.qform fieldset ol li.datetime fieldset legend span {}
+
+form.qform fieldset ol li.date fieldset ol,
+form.qform fieldset ol li.time fieldset ol,
+form.qform fieldset ol li.datetime fieldset ol { float: left; width: 78%; margin: 0; padding: 0; }
+
+form.qform fieldset ol li.date fieldset ol li,
+form.qform fieldset ol li.time fieldset ol li,
+form.qform fieldset ol li.datetime fieldset ol li { float: left; width: auto; margin: 0; padding: 0; border: 0; }
+
+form.qform fieldset ol li.date fieldset ol li label,
+form.qform fieldset ol li.time fieldset ol li label,
+form.qform fieldset ol li.datetime fieldset ol li label { display: none; }
+
+form.qform fieldset ol li.date fieldset ol li label input, 
+form.qform fieldset ol li.time fieldset ol li label input, 
+form.qform fieldset ol li.datetime fieldset ol li label input { display: inline; margin: 0; padding: 0; }
+
+
+/* CUSTOM STUFF
+--------------------------------------------------------------------------------------------------*/
+.formfield {
+  width: 100%;
+}
+
+.formfield tr td {
+  text-align: left;
+  padding: 2px 18px 7px 10px;
+}
+.formfield tr td:first-child {
+  width: 160px;
+}
+
+.formfield tr td label {
+  margin-left: 0px;
+  min-width: 100px;
+  display: inline-block;
+}
+
+.formfield tr td p.hint {
+  color: #666;
+  margin-top: 3px;
+  font-size: 12px;
+  padding-left: 20px;
+  /*
+  background: transparent url('../images/icons/information.png') no-repeat 0 50%;
+  */
+  text-align: left;
+}
+
+
+.formfield tr td.string input, .formfield tr td.textarea textarea {
+  width: 100%;
+  border: #222 1px inset;
+  padding: 3px;
+  color: #333;
+}
+
+.formfield tr td.textarea.small textarea {
+  height: 60px;
+}
+
+.formfield tr td.textarea.medium textarea {
+  height: 100px;
+}
+
+
+.formfield tr td select {
+  padding: 3px;
+  outline: 2px solid #fff;
+}
+
+.formfield tr td.string input:focus, .formfield tr td.textarea textarea:focus {
+  background-color: #ffd;
+  outline: 3px solid #f3ec99;
+  color: #000;
+}
+
+.formfield tr td div.checkbox {
+  display: block;
+  padding: 6px 0;
+}
+
+.formfield tr td div.checkbox label {
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.formfield tr td div.checkbox input {
+  margin-left: 0px;
+  outline: #fff 3px solid;
+}
+
+.formfield tr td div.checkbox input:hover {
+  outline-color: #f3ec99;
+}

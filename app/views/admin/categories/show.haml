@@ -1,0 +1,22 @@
+- @extra_stylesheet = ['admin/buttons', 'admin/tables']
+
+%ul.list_of_categories
+  - if @category.children.blank?
+    %p no categories found here... just go ahead and add some if u need
+  - else
+    %table.qtable{ :style => 'width: 100%' }
+      %tr
+        %th{ :width => 10 } #
+        %th Name
+        %th{ :colspan => 2 } actions
+      - @category.children.each_with_index do |category, index|
+        %tr
+          %td= index + 1
+          %td= link_to h(category.name), admin_category_path(category)
+          %td= link_to 'edit', edit_admin_category_path(category)
+          %td= link_to 'delete', admin_category_path(category), :method => :delete, :confirm => 'Are you sure?'
+
+%hr
+.i_buttons{ :style => 'margin-top: 15px;' }
+  = link_to 'add category', new_admin_category_path(:parent => @category.id), :class => :add
+  = link_to 'new project', new_admin_project_path(:parent => @category.id), :class => :page_add

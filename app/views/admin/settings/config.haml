@@ -1,0 +1,70 @@
+- @extra_stylesheet = ['admin/buttons', 'admin/forms']
+- @extra_javascript = ['jscolor/jscolor.js']
+
+- form_tag admin_settings_path do
+  %fieldset
+    %table.formfield
+      %tr
+        %td{ :style=>"width: 250px;" }= label_tag :background_color
+        %td.string= text_field_tag :background_color, @settings[:background_color], { :class => "color {pickerPosition: 'right'}", :style => "width: 200px;" }
+
+      %tr
+        %td{ :colspan => 2 }
+          %div.checkbox
+            = check_box_tag :background_use, @settings[:background_use], !!@settings[:background_use], { :id => :background_use }
+            = label_tag :background_use, 'Use background image?'
+
+      %tr.bkg_field
+        %td{ :colspan => 2 }
+          %hr
+
+      - unless @bg_collection.blank?
+        %tr.bkg_field
+          %td= label_tag :background_image
+          %td= select_tag :background_image, options_for_select(@bg_collection, :selected => @settings[:background_image])
+        %tr.bkg_field
+          %td= label_tag :background_repeat
+          %td= select_tag :background_repeat, options_for_select(['repeat', 'no-repeat', 'repeat-x', 'repeat-y'], :selected => @settings[:background_repeat])
+        %tr.bkg_field
+          %td= label_tag :background_y_position, "Background vertical align"
+          %td= select_tag :background_y_position, options_for_select(['top', 'center', 'bottom'], :selected => @settings[:background_y_position])
+        %tr.bkg_field
+          %td= label_tag :background_x_position, "Background horizontal align"
+          %td= select_tag :background_x_position, options_for_select(['left', 'center', 'right'], :selected => @settings[:background_x_position])
+      - else
+        %tr.bkg_field
+          %td{ :colspan => 2 }
+            %div{ :style => "background-color: #eee; padding: 10px; border: #ccc 1px solid" }
+              %p{ :style => "color: green;" } No images found for background.
+              %p{ :style => "color: green;" } Please, upload some via ftp than <strong>reload</strong> this page.
+              %p{ :style => "color: #222; font-weight: bold" } Upload "jpg, jpeg, gif or png" only
+
+      %tr
+        %td{ :colspan => 2 }
+          %hr
+
+      %tr
+        %td= label_tag :sidebar_background
+        %td.string= text_field_tag :sidebar_background, @settings[:sidebar_background], { :class => "color {pickerPosition: 'right'}", :style => "width: 200px;" }
+
+    %div.buttons
+      %button.positive{ :type => :submit }
+        = image_tag 'icons/tick.png'
+        %span
+          %span Save
+
+    %hr
+    .i_buttons{ :style => 'margin-top: 15px;' }
+      = link_to 'reset to defaults', admin_settings_reset_path, {:class => :cross_white, :confirm => "are you sure you want to reset this color settings?"}
+:javascript
+  var bkgApply = function(){
+    var bkg_fields = $$('tr.bkg_field');
+    if($('background_use').checked){
+      bkg_fields.each(function(ele){ ele.show() });
+    } else {
+      bkg_fields.each(function(ele){ ele.hide() });
+    }
+  }
+  bkgApply();
+  Event.observe($('background_use'), 'click', bkgApply);
+  

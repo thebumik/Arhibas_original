@@ -1,0 +1,15 @@
+- content_for :breadcrumb do
+  %ul.breadcrumb
+    %li
+      = link_to content_tag(:span, 'Projects'), admin_projects_path
+    %li
+      = content_tag :span, h(@project.name), :style => 'color: palevioletred'
+
+- form_for @project, :url => admin_project_path, :html => { :autocomplete => :off, :multipart => true, :class => :qform } do |f|
+  = render :partial => 'form', :locals => { :f => f }
+
+%hr
+.i_buttons{ :style => 'margin-top: 15px;' }
+  = link_to 'Back', admin_projects_path, :class => :arrow_left
+  = link_to 'New Project', new_admin_project_path, :class => :page_add
+  = link_to 'delete', admin_project_path(@project.id), :class => :delete, :method => :delete, :confirm => 'Are you sure?'

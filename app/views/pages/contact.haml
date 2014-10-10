@@ -1,0 +1,41 @@
+.inbody
+  %h1= @page_translation.name
+  = @page_translation.body
+
+.contact_form
+  - unless flash.blank?
+    %div.flash_notice
+      = flash[:notice]
+  - form_for :contact_form, { :multipart => true, :autocomplete => :off } do |f|
+    %ul
+      %li
+        = f.error_messages
+      %li
+        = f.label :name, t(:'simple_form.attributes.name')
+        = f.text_field :name
+      %li
+        = f.label :company, t(:'simple_form.attributes.company')
+        = f.text_field :company
+      %li
+        = f.label :address, t(:'simple_form.attributes.address')
+        = f.text_field :address
+      %li
+        = f.label :city, t(:'simple_form.attributes.city')
+        = f.text_field :city
+      %li
+        = f.label :country, t(:'simple_form.attributes.country')
+        = f.text_field :country
+      %li
+        = f.label :phone, t(:'simple_form.attributes.telephone')
+        = f.text_field :phone
+      %li
+        = f.label :email, t(:'simple_form.attributes.email')
+        = f.text_field :email
+      %li
+        = f.label :message, t(:'simple_form.attributes.message')
+        = f.text_area :message
+      %li
+        = f.label :file, t(:'simple_form.attributes.file')
+        = f.file_field :file
+      %li
+        = image_submit_tag 'buttons/send_en.gif', :class => :send_button

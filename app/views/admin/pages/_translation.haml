@@ -1,0 +1,15 @@
+- object.fields_for :translations do |t|
+  %div{ :id => dom_id(t.object, t.object.lang) }
+    %fieldset
+      = t.hidden_field :lang
+      %table.formfield
+        %tr
+          %td= t.label :name
+          %td.string= t.text_field :name
+
+        %tr
+          %td.textarea{ :colspan => 2 }
+            %hr
+            = t.label :body_markdown, 'Content'
+            = t.text_area :body_markdown, :style => 'margin-top: 4px;', :value => (t.object.body_markdown.blank? ? t.object.body : t.object.body_markdown)
+            %p{ :style => "color: green; padding: 3px 0;" }= "use <strong>markdow</strong> for syntax!"

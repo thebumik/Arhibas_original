@@ -1,0 +1,11 @@
+%p= "<strong>Login:</strong> #{h(@user.login)}"
+%p= "<strong>Login count:</strong> #{h(@user.login_count)}"
+%p= "<strong>Last request at:</strong> #{h(@user.last_request_at)}"
+%p= "<strong>Last login at:</strong> #{h(@user.last_login_at)}"
+%p= "<strong>Current login at:</strong> #{h(@user.current_login_at)}"
+%p= "<strong>Last login ip:</strong> #{h(@user.last_login_ip)}"
+%p= "<strong>Current login ip:</strong> #{h(@user.current_login_ip)}"
+
+= link_to "<< Back", admin_path
+= link_to 'Edit', edit_admin_account_path
+= link_to 'Register new user', new_admin_account_path

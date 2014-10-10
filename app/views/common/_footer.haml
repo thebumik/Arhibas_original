@@ -1,0 +1,2 @@
+- pages = Page.published.include(:translations)
+%p= pages.map{|p| page_translation = p.translation(I18n.locale);  link_to(h(page_translation.name), page_path(I18n.locale, p.slug))}.join(' | ')

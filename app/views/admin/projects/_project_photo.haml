@@ -1,0 +1,4 @@
+- unless project_photo.new_record?
+  %div._pp_thumb
+    %div= image_tag project_photo.data.url(:thumb), :alt => ''
+    %div= check_box_tag "photo_ids[]", project_photo.id

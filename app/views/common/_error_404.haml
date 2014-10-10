@@ -1,0 +1,4 @@
+%h1
+  = @title
+%div
+  = [request.protocol, request.host].join.to_a.push(params[:url]).join('/')

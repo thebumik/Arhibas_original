@@ -1,0 +1,23 @@
+%div#flash
+  / flash messages window
+  - unless flash.empty?
+    - if flash[:notice]
+      %div#flash_message.notice
+        %span= flash[:notice]
+        %span.hide_me= flash_hide_link
+        - javascript_tag do
+          = visual_effect(:highlight, 'flash_message', :endcolor => '#e6fbc8')
+
+    - if flash[:warning]
+      %div#flash_message.error
+        %span= flash[:warning]
+        %span.hide_me= flash_hide_link
+        - javascript_tag do
+          = visual_effect(:highlight, 'flash_message', :endcolor => 'lightyellow')
+
+    - if flash[:error]
+      %div#flash_message.error
+        %span= flash[:error]
+        %span.hide_me= flash_hide_link
+        - javascript_tag do
+          = visual_effect(:highlight, 'flash_message', :startcolor => '#ffb7b7', :endcolor => '#ffdddd')

@@ -1,0 +1,128 @@
+/*__________________________________________________________________________ # comments
+*/
+#comments {
+  padding: 10px;
+}
+
+#comments h3 {
+  color: #EEEEEE;
+  font-family: Georgia;
+  font-size: 19px;
+  font-weight: normal;
+  padding: 0 20px;
+  margin-bottom: 10px;
+  background: transparent url('../images/icons/balloons.png') no-repeat 0 50%;
+}
+
+
+.invalid {
+  background-color: #222 !important;
+  color: #c00 !important;
+  border: 1px solid #c00 !important;
+}
+/*__________________________________________________________________________ # comments .list
+*/
+#comments .list li {
+
+  border-left: #444 4px solid;
+  padding: 5px;
+  margin-bottom: 10px;
+  color: #ddd;
+}
+
+#comments .list li .author {
+  color: #aaa;
+  font: italic 12px Georgia;
+}
+
+#comments .list li .author strong {
+  color: #89DC30;
+  font-style: normal;
+}
+
+#comments .list li .message {
+  margin-top: 5px;
+  line-height: 20px;
+  font-size: 15px;
+  font: normal 15px "Trebuchet MS", Arial;
+}
+
+#comments .list li .awaiting_for_moderation {
+  color: palevioletred;
+  margin-top: 5px;
+  font-size: 11px;
+  font-family: "Trebuchet MS", arial;
+  padding-left: 20px;
+  background: transparent url('../images/icons/clock.png') no-repeat 0 50%;
+}
+
+/*__________________________________________________________________________ # comments .new
+*/
+#comments .new ul li {
+  list-style: none;
+  margin: 4px;
+}
+
+#comments .new ul li label {
+  display: inline-block;
+  width: 100px;
+  color: #ddd;
+  font: normal 14px "Trebuchet MS", Arial;
+}
+
+#comments .new ul li input[type=text], #comments .new ul li textarea {
+  border: #555 1px solid;
+  background-color: #333;
+  padding: 4px;
+  width: 300px;
+  color: #aaa;
+  font: normal 14px "Trebuchet MS", Arial;
+}
+
+#comments .new ul li textarea {
+  width: 300px;
+  height: 100px;
+  font: normal 14px "Trebuchet MS", Arial;
+}
+
+#comments .new ul li input:focus, #comments .new ul li textarea:focus {
+  border-color: #777;
+  background-color: #444;
+  color: #eee;
+}
+
+#comments .new ul li input.send_button {
+  margin-left: 104px;
+  margin-top: 5px;
+}
+
+.errorExplanation {
+  border: #900 1px solid;
+  padding: 10px;
+  color: #c00;
+  background-color: #fdd;
+  outline: 3px solid #fff;
+  margin-bottom: 15px;
+}
+
+#comments .new ul li .fieldWithErrors {
+  display: inline-block;
+}
+
+#comments .new ul li .fieldWithErrors label {
+  color: red;
+}
+
+#comments .new ul li .fieldWithErrors input {
+  border: red 1px solid;
+}
+
+.flash_notice {
+  border: green 1px solid;
+  padding: 10px;
+  color: darkgreen;
+  background-color: #dfd;
+  font: normal 14px "Trebuchet MS", Arial;
+  outline: 3px solid #fff;
+  margin-bottom: 15px;
+}

@@ -1,0 +1,6 @@
+- unless page_asset.new_record?
+  %div._pp_thumb
+    %div= image_tag page_asset.data.url(:thumb), :alt => ''
+    %div
+      %span{ :style => 'padding: 2px; color: green; background-color: #eee' }= "<strong>#{page_asset.id}</strong>"
+      %span= check_box_tag "asset_ids[]", page_asset.id

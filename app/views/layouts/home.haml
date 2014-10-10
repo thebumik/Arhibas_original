@@ -1,0 +1,53 @@
+!!! Strict
+%html{ html_attrs(I18n.locale) }
+  %head
+    %meta{ 'http-equiv' => 'Content-Type', :content => 'text/html; charset=utf-8' }
+    %meta{ 'http-equiv' => 'X-UA-Compatible', :content => 'IE=EmulateIE7' }
+    %title= "Arhibas.com :: #{t(:'sidebar.slogan')}"
+    = stylesheet_link_tag 'reset', 'master_home'
+    - unless extra_css_inline.blank?
+      %style{:type => "text/css", :media => "screen"}
+        :plain
+          #{extra_css_inline}
+
+    = javascript_include_tag 'swfobject'
+    - cat_params = [['tv1', 97], ['lv1', 56], ['lv3', 58], ['lv5', 55], ['lv9', 57], ['fv1', 60], ['fv2', 61], ['fv4', 62], ['fv5', 53], ['fv9', 59]]
+    - pag_params = [['tv2', 3], ['tv4', 5], ['tv5', 7], ['tv6', 4], ['tv8', 10]]
+    - flash_params = []
+    - flash_params << get_cats_params(Category.include(:translations).group_by(&:id), cat_params, 'category')
+    - flash_params << get_cats_params(Page.include(:translations).group_by(&:id), pag_params, 'page')
+    - flash_params = flash_params.join(', ')
+
+    :javascript
+      var attributes = { menu: "false", wmode: "window", allowscriptaccess: "sameDomain", quality: "best" };
+      var getSlider = function(url){
+        swfobject.embedSWF("/flash/islider.swf", "the_slider", "600", "180", "8.0.0", "/flash/swfobject/expressInstall.swf", { _xml: url }, attributes);
+      };
+      swfobject.embedSWF(
+        "/flash/cube.swf", "the_cube", "1200", "626", "8.0.0", "/flash/swfobject/expressInstall.swf",
+        {
+          locale: "#{I18n.locale.downcase}",
+          #{flash_params},
+          slogan: "#{t(:'sidebar.slogan')}",
+          projects: "#{t(:'cube.projects')}",
+          about: "#{t(:'cube.about')}",
+          constructions: "#{t(:'cube.constructions')}",
+          slogan_p1: "#{t(:'cube.slogan_p1')}",
+          slogan_p2: "#{t(:'cube.slogan_p2')}",
+          animation_type: "#{session[:animation_type].blank? ? "full" : session[:animation_type]}"
+        }, attributes
+      );
+
+  %body
+    #wrap
+      #the_cube
+        / flash cube here
+
+      #wslider
+        #the_slider
+          / slider here
+
+      #wfooter
+        = render :partial => 'common/footer'
+        .copyright
+          = "&copy; 1996 - #{Time.now.year} Arhibas. All rights reserved."

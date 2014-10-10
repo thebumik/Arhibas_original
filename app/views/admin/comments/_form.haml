@@ -1,0 +1,24 @@
+- @extra_stylesheet = ['admin/forms', 'admin/buttons']
+
+._content
+  %fieldset
+    %table.formfield
+      %tr
+        %td= f.label :author
+        %td.string= f.text_field :author
+      %tr
+        %td.textarea.medium{ :colspan => 2 }
+          %hr
+          = f.label :body
+          = f.text_area :body, :style => 'margin-top: 4px;'
+      %tr
+        %td{ :colspan => 2 }
+          %div.checkbox
+          = f.check_box :active
+          = f.label :active, 'Active?'
+
+%div.buttons
+  %button.positive{ :type => :submit }
+    = image_tag 'icons/tick.png'
+    %span
+      %span Save than close

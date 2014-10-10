@@ -1,0 +1,14 @@
+- content_for :breadcrumb do
+  %ul.breadcrumb
+    %li
+      = link_to content_tag(:span, 'Comments'), admin_comments_path
+    %li
+      = content_tag :span, h(@comment.author), :style => 'color: palevioletred'
+
+- form_for @comment, :url => admin_comment_path, :html => { :autocomplete => :off, :multipart => true, :class => :qform } do |f|
+  = render :partial => 'form', :locals => { :f => f }
+
+%hr
+.i_buttons{ :style => 'margin-top: 15px;' }
+  = link_to 'Back', admin_comments_path, :class => :arrow_left
+  = link_to 'delete', admin_comment_path(@comment), :class => :delete, :method => :delete, :confirm => 'Are you sure?'

@@ -1,0 +1,7 @@
+.photo
+  - fields_for 'page[assets_attributes][]', asset do |p|
+    %p
+      = p.label :Asset
+      %br
+      = p.file_field :data, :index => nil
+      = link_to_function "delete", "remove_field($(this), ('.photo'))"

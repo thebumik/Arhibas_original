@@ -1,0 +1,195 @@
+/*__________________________________________________________________________ # GLOBAL styles
+*/
+body {
+  background-color: #aadeff;
+  text-align: center;
+  font-family: Tahoma, 'Trebuchet MS', Arial;
+  font-size: 15px;
+}
+
+div {
+  display: block;
+}
+
+hr {
+  height: 1px;
+  padding: 0;
+  margin: 7px 10px;
+  border: none;
+  background-color: #444;
+}
+
+/*__________________________________________________________________________ # GLOBAL cleaners
+*/
+.clean {
+  clear: both;
+}
+
+.clean.left {
+  clear: left;
+}
+
+.clean.right {
+  clear: right;
+}
+
+/*__________________________________________________________________________ # WRAPPER
+*/
+#wrapper {
+  position: relative;
+  min-width: 900px;
+  width: 900px;
+  text-align: left;
+  margin: 0 auto;
+  margin-bottom: 20px !important;
+}
+
+#wrap {
+  background-color: #fff;
+  position: relative;
+  min-width: 1200px;
+  width: 1200px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+#the_slider {
+  text-align: center !important;
+}
+
+#wslider {
+  min-height: 190px;
+  height: 190px;
+  text-align: center !important;
+  display: block;
+}
+
+
+/*__________________________________________________________________________ # HEADER
+*/
+#header {
+  margin-top: 0px;
+  height: 105px;
+  border-bottom: #7e7f9e 2px solid;
+}
+
+#header .languages {
+  display: block;
+  margin-top: 2px;
+  float: right;
+}
+
+#header .languages a {
+  margin-right: 2px;
+}
+
+#header .languages a img {
+  border: #eee 1px solid;
+  padding: 1px;
+  margin: 0px;
+}
+
+#header .languages a img.current {
+  border: dodgerblue 1px solid;
+}
+
+#header .logo {
+  float: left;
+  margin-top: 59px;
+}
+
+#header .slogan {
+  clear: left;
+  float: left;
+  padding-top: 5px;
+  color: #818181;
+  font: normal 14px "Trebuchet MS";
+}
+
+#header .contact {
+  float: right;
+  padding-top: 9px;
+}
+
+#header .contact a {
+  padding: 5px 30px;
+  color: #fff;
+  background-color: #addd28;
+  font-weight: bold;
+  font-size: 14px;
+  font-family: "Trebuchet MS";
+  border: #929393 1px solid;
+  text-decoration: none;
+}
+
+#header .contact a:hover {
+  background-color: #a0ce02;
+}
+/*__________________________________________________________________________ # CUBE
+*/
+#cube {
+  clear: both;
+  padding: 20px;
+  text-align: center;
+}
+
+/*__________________________________________________________________________ # QUICKGALLERY
+*/
+#quickGallery {
+  margin-top: -180px;
+  background: transparent url('../images/flow_gallery_footer.jpg') no-repeat center 425px;
+}
+
+#quickGallery img {
+  border: #333 2px solid;
+}
+
+
+#quickGallery .caption {
+  margin-top: 20px;
+  color: #000;
+  font-size: 20px;
+}
+
+/*__________________________________________________________________________ # FOOTER
+*/
+#footer {
+  border-top: #7e7f9e 2px solid;
+  padding: 10px 0;
+}
+
+#footer a {
+  font: normal 14px "Trebuchet MS";
+  color: #555;
+  text-decoration: none;
+}
+
+#footer a:hover {
+  color: #999;
+  text-decoration: underline;
+}
+
+/*__________________________________________________________________________ # FOOTER (wrapped)
+*/
+#wfooter {
+  background: transparent url('../images/line_footer.jpg') no-repeat 50% 0;
+  padding: 18px 0 10px 0;
+  color: #ccc;
+}
+
+#wfooter a {
+  font: normal 13px "Trebuchet MS";
+  color: #777;
+  text-decoration: none;
+}
+
+#wfooter a:hover {
+  color: #999;
+  text-decoration: underline;
+}
+
+#wfooter .copyright {
+  font-size: 13px;
+  color: #999;
+  padding: 5px 0 10px 0;
+}

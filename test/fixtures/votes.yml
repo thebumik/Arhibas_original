@@ -1,0 +1,20 @@
+# == Schema Information
+#
+# Table name: votes
+#
+#  id         :integer         not null, primary key
+#  ip         :string(255)
+#  project_id :integer
+#  created_at :datetime
+#  updated_at :datetime
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  ip: MyString
+  rating_id: 1
+
+two:
+  ip: MyString
+  rating_id: 1

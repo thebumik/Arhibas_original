@@ -1,0 +1,10 @@
+- @extra_stylesheet = ['admin/buttons', 'admin/forms']
+- @bradcrumb_afters = content_tag(:span, 'editing...', :style => 'color: palevioletred')
+
+- form_for @category, :url => admin_category_path, :html => { :autocomplete => :off, :class => :qform } do |f|
+  = render :partial => 'form', :locals => { :f => f }
+
+%hr
+.i_buttons{ :style => 'margin-top: 15px;' }
+  = link_to 'go back', admin_categories_path, :class => :arrow_left
+  = link_to 'delete', admin_category_path(@category), :class => :delete, :method => :delete, :confirm => 'Are you sure?'

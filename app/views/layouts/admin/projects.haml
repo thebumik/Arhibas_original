@@ -1,0 +1,23 @@
+!!! Strict
+%html{ html_attrs(:en) }
+  %head
+    %meta{ 'http-equiv' => 'Content-Type', :content => 'text/html; charset=utf-8' }
+    %title Projects :: arhibas.com backend
+    = render :partial => 'common/admin/assets'
+  %body
+    #header
+      = render :partial => 'common/admin/top_navigation'
+      #layoutdims
+        = "Here you got all availble #{content_tag :strong, 'projects'}, so go ahead and manage them."
+
+    .colmask.leftmenu.full_screen
+      .colright
+        .col1wrap
+          .col1{ :style => 'padding: 10px 0;' }
+            - if yield :breadcrumb
+              = yield :breadcrumb
+            .dyn_content
+              = default_flash(flash)
+              = yield
+    #footer
+      / footer goes here...

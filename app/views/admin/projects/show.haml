@@ -1,0 +1,42 @@
+- @extra_stylesheet = ['admin/buttons']
+- content_for :breadcrumb do
+  %ul.breadcrumb
+    %li
+      = link_to content_tag(:span, 'Projects'), admin_projects_path
+    %li
+      = content_tag :span, h(@project.name)
+
+%p
+  %b Name:
+  %span= h(@project.name)
+
+%p
+  %b Location:
+  %span= @project.location.blank? ? '---' : h(@project.location)
+
+%p
+  %b Arhitecht:
+  %span= @project.arhitect.blank? ? '---' : h(@project.arhitect)
+
+%p
+  %b Customer:
+  %span= @project.customer.blank? ? '---' : h(@project.customer)
+
+- unless @project.description.blank?
+  %p
+    %b Description:
+    %span= @project.description
+
+- unless @project.body.blank?
+  %p
+    %b Content:
+    %span= @project.body
+
+%hr
+- for photo in @project.photos
+  = image_tag photo.data.url(:thumb)
+%hr
+
+.i_buttons{ :style => 'margin-top: 15px;' }
+  = link_to 'Back', admin_projects_path, :class => :arrow_left
+  = link_to 'Edit', edit_admin_project_path(@project.id), :class => :page_edit
